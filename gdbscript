@@ -1,0 +1,18 @@
+file out/main.elf
+target remote :3333
+set debug timestamp on
+b main
+b main.c:89
+b main.c:103
+b main.c:130
+b main.c:159
+commands 2 3 4 5
+	bt
+	c
+end
+c
+set logging on
+display xTaskGetTickCount()
+c
+
+	
